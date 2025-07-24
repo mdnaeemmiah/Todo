@@ -1,13 +1,25 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Todo = () => {
   const [text, setText] = useState('');
   const [todos, setTodos] = useState<{ id: number; text: string; editing: boolean }[]>([]);
 
+  // ✅ Load todos from localStorage when component loads
+  useEffect(() => {
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos));
+    }
+  }, []);
+
+  // ✅ Save todos to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
   const handleAdd = () => {
     if (text.trim() === '') return;
-
     setTodos([...todos, { id: Date.now(), text, editing: false }]);
     setText('');
   };
