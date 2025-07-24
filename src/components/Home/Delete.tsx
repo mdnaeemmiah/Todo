@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Footer = () => {
+const Delete = () => {
     return (
         <div>
-            <h3>footer</h3>
+            <h2>delete</h2>
         </div>
     );
 };
 
-export default Footer;
+export default Delete;

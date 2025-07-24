@@ -1,14 +1,14 @@
-// import Footer from "@/components/shared/Footer";
-// import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/Navbar";
 
 const CommonLayout = ({children} :{children:React.ReactNode}) => {
     return (
         <>
-          {/* <Navbar></Navbar> */}
+          <Navbar></Navbar>
           <div className="min-h-screen container mx-auto">
           {children}
           </div>
-           {/* <Footer></Footer> */}
+           <Footer></Footer>
         </>
     );
 };
